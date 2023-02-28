@@ -21,9 +21,9 @@ function loadDataTable() {
                 "render": function (data) {
                     return `
                      <div class="m-75 btn-group" role="group">
-                        <a href="/Admin/Product/Upsert?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                        <a href="/Admin/Product/Upsert?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i>編輯</a>
 
-                        <a onClick=Delete('/Admin/Product/Delete/${data}') class="btn btn-danger mx-2"><i class="bi bi-x-square-fill"></i> Delete</a>
+                        <a onClick=Delete('/Admin/Product/Delete/${data}') class="btn btn-danger mx-2"><i class="bi bi-x-square-fill"></i>刪除</a>
                     </div>
                      `
                 },
@@ -38,13 +38,14 @@ function loadDataTable() {
 
 function Delete(url) {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: '你確定要刪除嗎?',
+        text: "刪除後即不可恢復",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: '確定刪除',
+        cancelButtonText: "取消"
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
