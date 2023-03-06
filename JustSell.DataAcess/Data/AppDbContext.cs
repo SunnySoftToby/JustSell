@@ -11,5 +11,6 @@ namespace JustSell.DataAccess
 
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Product> Products { get; set; }
+		public DbSet<Company> Companies { get; set; }
 	}
 }
